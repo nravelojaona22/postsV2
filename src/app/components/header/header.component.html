@@ -1,0 +1,24 @@
+<div class="navbar navbar-default">
+  <div class="container-fluid menu">
+    <ul class="nav navbar-nav">
+      <li routerLinkActive="active">
+        <a routerLink="posts">Blog</a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="new">Ajouter Post</a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li routerLinkActive="active" *ngIf="!isAuth">
+        <a routerLink="auth/signup">Créer compte</a>
+      </li>
+      <li routerLinkActive="active" *ngIf="!isAuth">
+        <a routerLink="auth/signin">Connexion</a>
+      </li>
+      <li *ngIf="isAuth">
+        <a>{{ userLogin }}</a>
+      </li>
+      <li><a (click)="onSignout()" style="cursor:pointer" *ngIf="isAuth">Déconnexion</a></li>
+    </ul>
+  </div>
+</div>

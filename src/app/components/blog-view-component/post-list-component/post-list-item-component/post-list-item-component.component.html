@@ -1,0 +1,18 @@
+<li [ngClass]="{'list-group-item clearfix' : true,
+                'list-group-item-success' : post.like > post.dislike,
+                'list-group-item-danger' : post.like < post.dislike}">
+  <div class="row">
+    <div class="col-sm-2 col-xs-12">
+        <img *ngIf="post.photo" class="full-width" [src]="post.photo">
+    </div>
+    <div class="col-sm-10 col-xs-12">
+      <h4>{{post.title}}</h4><span class="float-sm-right date-create">{{post.createDate | date : 'short'}}</span>
+      <p>{{post.content}}</p>
+    </div>
+  </div>
+  <div class="btn-action" style="padding-bottom: 10px;">
+    <button type="button" class="btn like btn-success pull-left" (click)= "onLike()">Like <span *ngIf="post.like > 0">({{post.like}})</span></button>
+    <button type="button" class="btn dislike btn-danger pull-left" (click)= "onDislike()">Dislike <span *ngIf="post.dislike > 0">({{post.dislike}})</span></button>
+    <button type="button" class="btn delete btn-default pull-left" (click)= "onDelete(post)">Delete</button>
+  </div>
+</li>
