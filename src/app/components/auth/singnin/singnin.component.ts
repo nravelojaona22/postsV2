@@ -34,7 +34,7 @@ export class SingninComponent implements OnInit {
     
     this.authService.signInUser(email, password).then(
       () => {
-        this.router.navigate(['/blog']);
+        this.router.navigate(['/posts']);
       },
       (error) => {
         this.errorMessage = error;
